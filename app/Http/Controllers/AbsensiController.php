@@ -90,6 +90,12 @@ class AbsensiController extends Controller
         return view('absensi.detail', compact('data', 'user'));
     }
 
+    public function rekap()
+    {
+        $data = User::where('role', 'user')->get();
+        return view('absensi.rekap', compact('data'));
+    }
+
     public function export()
     {
         return Excel::download(new RekapExport, 'Rekap Data.xlsx');
