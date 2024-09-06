@@ -37,7 +37,8 @@ Route::middleware('auth')->group(function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], function () {
     Route::get('absensi-data', [AbsensiController::class, 'data'])->name('absensi.data');
-    Route::get('rekap', [AbsensiController::class, 'export'])->name('rekap');
+    Route::get('rekap', [AbsensiController::class, 'rekap'])->name('rekap');
+    Route::get('rekap-export', [AbsensiController::class, 'export'])->name('rekap.export');
     Route::get('absensi-detail/{user}', [AbsensiController::class, 'detail'])->name('absensi.detail');
 });
 
